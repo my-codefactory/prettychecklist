@@ -156,6 +156,27 @@ h1 {
 	}
 }
 
+
+.index_row:before{
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background-image: url('https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/main-panel-icon.png?raw=true');
+	top: 15px;
+	left: 15px;
+}
+
+.index_row:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #789dcd;
+	top: 0;
+	left: 0;
+}
+
 #todo_items_wrapper {
 	.row {
 		width: 100%;
