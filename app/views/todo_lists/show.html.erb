@@ -11,11 +11,14 @@
 </p>
 
 <div id="todo_items_wrapper">
+	<div class="items-main">
 	<%= render @todo_list.todo_items %>
+	</div>
 	<div id="form">
-		<%= render "todo_items/form" %>
+		<%= render "todo_items/2form" %>
 	</div>
 </div>
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>
+<!--<%= link_to "Delete List", todo_list_path, method: :destroy, data:{ confirm: "Are you sure?" } %>-->

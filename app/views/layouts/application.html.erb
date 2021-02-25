@@ -10,9 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.cookie/1.3.1/jquery.cookie.js"></script>
+	<script src="https://github.com/my-codefactory/prettychecklist/blob/main/app/javascript/packs/index.js"></script>
+
   </head>
 
   <body>
+
 	<div class="content-indents">
 		<div class="application-wrapper">
 			<div class="page-title_wrapper">
@@ -29,3 +35,32 @@
 	 <footer class="footer"><p class="copyright">© Ruby Garage</p></footer>
   </body>
 </html>
+
+<script>
+
+	
+	var i = 0;
+	$(".work-task--input-field").each(function() {
+		i++;
+		$.get("http://localhost:3000/todo_lists/" + i, data => {		
+			var content = $("#form", data).html();		
+			$(this).html(content);		
+		});
+	});
+
+var k = 0;
+	$(".work-task--list__wrapper").each(function() {
+		k++;
+		$.get("http://localhost:3000/todo_lists/" + k, data => {
+			var content = $(".items-main", data).html();		
+			$(this).html(content);
+		});
+	});
+
+	
+$(function() {		
+		$(".work-task--list__wrapper").sortable();
+});
+
+
+</script>

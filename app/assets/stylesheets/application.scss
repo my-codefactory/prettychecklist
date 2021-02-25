@@ -13,12 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ 
  $white_opaque: rgba(250, 250, 250, .3);
  $dark: #1F7972;
 
 * {
 	box-sizing: border-box;
 }
+
+html, body, ul{
+	margin: 0;
+	padding: 0;
+}
+
 html {
   	position: relative;
 	min-height: 100%;
@@ -46,6 +53,10 @@ body {
 
 a{
  text-decoration: none;
+}
+
+li{
+	list-style-type: none;
 }
 
 /* Fonts */
@@ -142,7 +153,6 @@ h1 {
 }
 
 .index_row {
-	margin-bottom: 37px;
 	display: flex;
     position: relative;
     background-color: #4b7ab7;
@@ -192,19 +202,24 @@ h1 {
 		.todo_item {
 			width: 80%;
 			float: left;
+			padding: 1em;
 			p {
 				margin: 0;
-				padding: 1em;
 				color: $dark;
 				font-weight: 100;
 			}
 		}
 		.trash {
-			width: 10%;
-			float: left;
+			padding: 1em;
 			text-align: center;
 			border-left: 1px solid rgba(250,250,250, .3);
-			padding: 1em 0;
+		}
+		.edit{
+			padding: 1em;
+		}
+		
+		.move{
+			padding: 1em;
 		}
 		i {
 			color: white;
@@ -213,36 +228,6 @@ h1 {
 				color: $dark;
 			}
 		}
-	}
-	#form {
-		margin-top: 2em;
-		padding: 0 5%;
-		input[type="text"] {
-			width: 72%;
-			margin-right: 2%;
-			display: inline-block;
-			outline: none;
-			background: rgba(250,250,250,.4);
-			border: none;
-			height: 40px;
-			border-radius: 4px;
-			padding: 1em 2em;
-		}
-		input[type="submit"] {
-			background: rgba(250,250,250,.4);
-			outline: none;
-			border: none;
-			height: 40px;
-			border-radius: 4px;
-			width: 25%;
-			display: inline-block;
-			transition: all .4s ease-in-out;
-			cursor: pointer;
-			&:hover {
-				background: $dark;
-			}
-		}
-		::-webkit-input-placeholder { color: $dark; }
 	}
 }
 
@@ -263,36 +248,7 @@ h1 {
 label {
 	color: $dark;
 }
-input[type="text"], textarea {
-	width: 100%;
-	margin: .5em 2% 1em 0;
-	display: inline-block;
-	outline: none;
-	background: rgba(250,250,250,.4);
-	border: none;
-	height: 40px;
-	border-radius: 4px;
-	padding: 1em 2em;
-}
-textarea {
-	height: 200px;
-}
-input[type="submit"] {
-	background: white;
-	outline: none;
-	border: none;
-	height: 40px;
-	border-radius: 4px;
-	width: 25%;
-	display: inline-block;
-	transition: all .4s ease-in-out;
-	cursor: pointer;
-	color: $dark;
-	&:hover {
-		background: $dark;
-		color: white;
-	}
-}
+
 ::-webkit-input-placeholder { color: $dark; }
 
 
@@ -327,6 +283,159 @@ h1{
 	padding: 13px 5px 13px 53px;
 	max-width: 85%;
 	border: none;
+}
+
+/*Style of second panels (gray) | input fields */
+
+.work-task--input-field{
+	position: relative;
+	padding: 8px 8px 11px 52px;
+	background-color: #d3d3d3;
+	border-top: none;
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+
+.work-task--input-field:before{
+	content: '';
+	background-image: url('https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/add-todolist-on-panel.png?raw=true');
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 15px;
+	left: 15px;
+}
+
+input[type="text"]{
+	padding: 10px 5px 10px 15px;
+	background-color: #fff;
+	width: 80%;
+	border: 1px solid #cfcfcf;
+	box-shadow: 0 -1px #707070;
+	border-radius: 1px;
+}
+
+input[type="text"]::-webkit-input-placeholder{
+	color: #bbb;
+}
+
+input[type="text"]::-moz-placeholder{
+	color: #bbb;
+}
+
+input[type="submit"]{
+	margin: -5px;
+	padding: 11px 15px 10px 15px;
+	color: #fff;
+	font-weight: bold;
+	width: 19%;
+	border: 1px solid #447557;
+	background-image: -webkit-gradient(linear, 0% 40%, 0% 100%, from(#8cc3a6), to(#558c6c)); 
+	background-image: -moz-linear-gradient(40% 100% 90deg, #8cc3a6, #558c6c);
+	border-radius: 0 5px 5px 0 !important;
+	text-shadow: 0 2px 2px #535e58;
+	cursor: pointer;
+}
+
+/*Style of task lists*/
+
+.work-task--list{
+	position: relative;
+	background-color: #fff;
+	border-top: none;
+	border-right: 1px solid #855f0d;
+	border-left: 1px solid #855f0d;
+	/*border-bottom: 1px solid #855f0d;*/
+	border-radius: 0 0 10px 10px;
+	cursor: pointer;
+}
+
+.work-task--list:before{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: #efdadf;
+	top: 0;
+	left: 40px;
+	z-index: 1;
+}
+
+.work-task--list:after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: #efdadf;
+	top: 0;
+	left: 45px;
+}
+
+.first-column li:hover, .second-column li:hover{
+	background-color: #fcfed5;
+}
+
+.first-column li:last-child:hover, .second-column li:last-child:hover{
+	border-radius: 0 0 10px 10px;
+}
+
+.work-task--list__wrapper{
+	margin-bottom: 25px;
+}
+
+.work-task--list__wrapper > div{
+	border-bottom: 1px solid #e7ebea;
+	padding: 15px 25px 15px 10px;
+}
+
+.work-task--list__wrapper > div:last-child{
+	border-bottom: none;
+	&:hover{
+		border-radius: 10px;
+	}	
+}
+
+.text{
+	flex-wrap: wrap;
+	max-width: 90%;
+	padding-left: 30px;
+	padding-right: 15px;
+
+}
+
+.text-line-through{
+   text-decoration: line-through;
+}
+
+.work-task--list_elements{
+	display: flex;
+}
+
+.top-buttons{
+	display: none;
+}
+
+.right-group-buttons, .top-buttons{
+	margin-left: auto;
+}
+
+.show-buttons{
+	display: flex;
+}
+
+.display-none{
+	display: none;
+}
+
+.top-buttons{
+	margin-right: 20px;
+}
+
+.top-buttons button{
+	cursor: pointer;
 }
 
 /*Button of creating projects*/
@@ -380,4 +489,88 @@ h1{
 
 .copyright{
 	padding: 40px 10px 10px 10px;
+}
+
+/* Style for new TODO List */
+
+.field{
+	margin-bottom: 15px;
+	
+		input[type="text"], textarea {
+		width: 100%;
+		margin: .5em 2% 1em 0;
+		display: inline-block;
+		outline: none;
+		background: rgba(250,250,250,.4);
+		border: none;
+		height: 40px;
+		border-radius: 4px;
+		padding: 1em 2em;
+	}
+		textarea {
+		height: 200px;
+	}
+}
+
+.actions{
+	margin-bottom: 20px;
+}
+
+.flex-class{
+	display: flex;
+	&:hover{
+		background-color: #fcfed5;
+	}	
+}
+
+.complete{
+	float: left;
+	width: 10%;
+}
+
+.todo_item{
+	float: left;
+	width: 80%;
+}
+
+.trash{
+	width: 2%;
+}
+
+.edit{
+	width: 4%;
+	margin-right: 5px;
+	position: relative;
+		&:after{
+		content: '|';
+		position: absolute;
+		top: 0;
+		left: 69%;
+		color: #e7ebea;
+	}
+}
+
+.move{
+	width: 5%;
+	position: relative;
+		&:after{
+		content: '|';
+		position: absolute;
+		top: 0;
+		left: 60%;
+		color: #e7ebea;
+	}
+}
+
+.first-column{
+	position: relative;
+	&:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 83%;
+		width: 1px;
+		height: 100%;
+		background-color: #e7ebea;
+	}
 }
