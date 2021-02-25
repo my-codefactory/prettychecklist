@@ -41,7 +41,7 @@
 	var i = 0;
 	$(".work-task--input-field").each(function() {
 		i++;
-		$.get("http://localhost:3000/todo_lists/" + i, data => {		
+		$.get("https://gentle-waters-69865.herokuapp.com/todo_lists/" + i, data => {		
 			var content = $("#form", data).html();		
 			$(this).html(content);		
 		});
@@ -50,7 +50,7 @@
 var k = 0;
 	$(".work-task--list__wrapper").each(function() {
 		k++;
-		$.get("http://localhost:3000/todo_lists/" + k, data => {
+		$.get("https://gentle-waters-69865.herokuapp.com/todo_lists/" + k, data => {
 			var content = $(".items-main", data).html();		
 			$(this).html(content);
 		});
