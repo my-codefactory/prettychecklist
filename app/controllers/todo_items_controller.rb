@@ -13,6 +13,9 @@ class TodoItemsController < ApplicationController
 		redirect_to root_path
 	end
 	
+	def edit
+	end
+	
 	def destroy
 		if @todo_item.destroy
 			flash[:success] = "Todo List item was deleted."

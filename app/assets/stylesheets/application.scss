@@ -84,6 +84,15 @@ h1 {
 	font-weight: 400;
 }
 
+.welcome-word{
+	color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	padding: 5px;
+	text-align: center;
+	border-radius: 10px;
+	background-color: #d1b862;
+}
+
 .work-task--top-panel_title{
 	font-size: 23px;
 	color: #fff;
@@ -109,10 +118,10 @@ h1 {
 	color: #fff;
 }
 
-#notice {
+.notice {
 	text-align: center;
-	font-size: 0.6em;
-	color: $dark;
+	font-size: 24px;
+	color: #333;
 	font-weight: 100;
 }
 
@@ -276,6 +285,72 @@ h1{
 .content-indents{
 	margin: 5px 10px 80px 10px;
 }
+
+.main-menu{
+	margin: 10px auto;
+	max-width: 80%;
+	ul{
+		display: flex;
+		justify-content: center;
+		align-content: space-between;
+	}
+	
+	li{
+		margin-right: 5px;
+	}
+	
+	li a{
+		color: #fff;
+		padding: 10px;
+		background-color: #8cc3a6;
+		border-radius: 2px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		&:hover{
+			background-color: #6b927d;
+		}		
+	}
+	
+	li .new-todo{
+		background-color: #4674b0;
+		&:hover{
+			background-color: #2f5280;
+		}		
+	}	
+}
+
+/* Home Page Main Buttons */
+
+.main-buttons_wrapper{
+	display: flex;
+	margin: 50px 5px;
+	justify-content: center;
+}
+
+.home-log-in_button{
+	min-width: 35%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	margin-right: 10px;
+	padding: 20px;
+	color: #fff;
+	background-color: #8cc3a6;
+	&:hover{
+		background-color: #6b927d;
+	}
+}
+
+.home-sign-up_button{
+	min-width: 35%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	padding: 20px;
+	color: #fff;
+	background-color: #8cc3a6;
+	&:hover{
+		background-color: #6b927d;
+	}
+}
+
 
 /* Top Blue Panel */
 
@@ -455,6 +530,10 @@ input[type="submit"]{
 	border: 1px solid #315589;
 	border-radius: 2px;
 	cursor: pointer;
+	&:hover{
+		background-image: -webkit-gradient(linear, 0% 40%, 0% 100%, from(#3d689a), to(#253963));
+		background-image: -moz-linear-gradient(40% 100% 90deg, #3d689a, #253963);
+	}
 }
 
 #main-button:before{

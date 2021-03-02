@@ -1,12 +1,24 @@
-<% @todo_lists.each do |todo_list| %>
-	<div class="index_row clearfix">
-		<h2 class="work-task--top-panel_title"><%= link_to todo_list.title, todo_list %></h2>
+<% if user_signed_in? %>
+	<% @todo_lists.each do |todo_list| %>
+		<div class="index_row clearfix">
+			<h2 class="work-task--top-panel_title"><%= link_to todo_list.title, todo_list %></h2>
+		</div>
+		<div class="work-task--input-field" id="list"></div>
+		<div class="work-task--list">
+			<div class="work-task--list__wrapper first-column"></div>
+		</div>
+	<% end %>
+	<div class="main-button-wrapper">
+		<button id="main-button"><%= link_to "Add TODO List", new_todo_list_path %>
 	</div>
-	<div class="work-task--input-field" id="list"></div>
-	<div class="work-task--list">
-		<div class="work-task--list__wrapper first-column"></div>
-	</div>
+	<% else %>
+	<%= render 'layouts/static_home_page' %>
 <% end %>
-<div class="main-button-wrapper">
-	<button id="main-button"><%= link_to "Add TODO List", new_todo_list_path %>
-</div>
+
+<script>
+	
+$(function() {		
+	$(".work-task--list__wrapper").sortable();
+});
+
+</script>

@@ -8,11 +8,11 @@
 	<div class="todo_item" style="opacity: 0.4;"><strike><%= todo_item.content %></strike></div>
 			
 			<div class="move show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true"), todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data:{ confirm: "Are you sure?" } %>
+				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true")%>
 			</div>
 			
 			<div class="edit show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data:{ confirm: "Are you sure?" } %>
+				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), edit_todo_list_path(@todo_list) %>
 			</div>
 			
 					
@@ -29,11 +29,11 @@
 		<%= todo_item.content %>
 	</div>
 			<div class="move show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true"), todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data:{ confirm: "Are you sure?" } %>
+				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true") %>
 			</div>
 			
 			<div class="edit show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data:{ confirm: "Are you sure?" } %>
+				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), edit_todo_list_path(@todo_list) %>
 			</div>
 			
 					
