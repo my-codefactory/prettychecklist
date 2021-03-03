@@ -354,10 +354,40 @@ h1{
 
 /* Top Blue Panel */
 
-.work-task--top-panel_title a{
-	padding: 13px 5px 13px 53px;
-	max-width: 85%;
-	border: none;
+.work-task--top-panel_title{
+	a{
+		padding: 13px 5px 13px 53px;
+		max-width: 85%;
+		border: none;
+	}
+}
+
+.top-panel_buttons{
+	display: none;
+}
+
+.index_row:hover{
+	.top-panel_buttons{
+		display: flex;
+	}
+}
+
+.top-panel_buttons{
+	position: absolute;
+	right: 7px;
+}
+
+.top-panel_buttons :first-child{
+	margin-right: 15px;
+}
+
+.top-panel_buttons :first-child::after{
+	content: '';
+	position: absolute;
+	top: 0;
+	background-color: #99b1d3;
+	width: 1px;
+	height: 100%;
 }
 
 /*Style of second panels (gray) | input fields */
