@@ -25,10 +25,9 @@ class TodoListsController < ApplicationController
   # POST /todo_lists or /todo_lists.json
   def create
     @todo_list = current_user.todo_lists.build(todo_list_params)
-
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to @todo_list, notice: "Todo List was successfully created." }
+        format.html { redirect_to root_path, notice: "Todo List was successfully created." }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +40,7 @@ class TodoListsController < ApplicationController
   def update
     respond_to do |format|
       if @todo_list.update(todo_list_params)
-        format.html { redirect_to @todo_list, notice: "Todo List was successfully updated." }
+        format.html { redirect_to root_path, notice: "Todo List was successfully updated." }
         format.json { render :show, status: :ok, location: @todo_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
