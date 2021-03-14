@@ -390,6 +390,11 @@ h1{
 	height: 100%;
 }
 
+.work-task--input-field input[type="submit"]{
+	border-radius: 0 5px 5px 0;
+	margin: -5px;
+}
+
 /*Style of second panels (gray) | input fields */
 
 .work-task--input-field{
@@ -430,7 +435,6 @@ input[type="text"]::-moz-placeholder{
 }
 
 input[type="submit"]{
-	margin: -5px;
 	padding: 11px 15px 10px 15px;
 	color: #fff;
 	font-weight: bold;
@@ -438,9 +442,13 @@ input[type="submit"]{
 	border: 1px solid #447557;
 	background-image: -webkit-gradient(linear, 0% 40%, 0% 100%, from(#8cc3a6), to(#558c6c)); 
 	background-image: -moz-linear-gradient(40% 100% 90deg, #8cc3a6, #558c6c);
-	border-radius: 0 5px 5px 0 !important;
+	border-radius: 5px;
 	text-shadow: 0 2px 2px #535e58;
 	cursor: pointer;
+	&:hover{
+		background-image: -webkit-gradient(linear, 0% 40%, 0% 100%, from(#76a08a), to(#446b54)); 
+		background-image: -moz-linear-gradient(40% 100% 90deg, #76a08a, #446b54);
+	}
 }
 
 /*Style of task lists*/
@@ -586,7 +594,7 @@ input[type="submit"]{
 	left: 0;
 }
 
-/*Footer + Copyright*/
+/* Footer */
 
 .footer{
 	position: absolute;
@@ -594,10 +602,6 @@ input[type="submit"]{
 	text-align: center;
 	bottom: 0;
 	left: 0;
-}
-
-.copyright{
-	padding: 40px 10px 10px 10px;
 }
 
 /* Style for new TODO List */
@@ -625,10 +629,17 @@ input[type="submit"]{
 	margin-bottom: 20px;
 }
 
+.move, .edit, .trash{
+	display: none;
+}
+
 .flex-class{
 	display: flex;
 	&:hover{
 		background-color: #fcfed5;
+		.move, .edit, .trash{
+			display: flex;
+		}	
 	}	
 }
 
@@ -682,4 +693,21 @@ input[type="submit"]{
 		height: 100%;
 		background-color: #e7ebea;
 	}
+}
+
+.back-button{
+	color: #fff;
+	padding: 7px 20px;
+	background-color: #4674b0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	&:hover{
+		background-color: #304c71;
+	}
+}
+
+/* Edit Page */
+
+.edit-title{
+	margin-bottom: 50px;
 }
