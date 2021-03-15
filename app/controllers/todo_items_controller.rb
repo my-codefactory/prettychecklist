@@ -1,12 +1,7 @@
 class TodoItemsController < ApplicationController
 
-	before_action :set_todo_list
+	before_action :set_todo_list, except: [:destroy] 
 	before_action :set_todo_item, except: [:create] 
-	
-	def index
-		@todo_item = TodoItem.new
-		@todo_items = TodoItem.all	
-	end
 
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
@@ -37,7 +32,7 @@ class TodoItemsController < ApplicationController
 	end
 			
 	def set_todo_item
-		@todo_item = @todo_list.todo_items.find(params[:id])
+		@todo_item = TodoItem.find(params[:id])
 	end
 	
 	def todo_item_params

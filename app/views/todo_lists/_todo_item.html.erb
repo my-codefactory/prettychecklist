@@ -1,44 +1,45 @@
-<div class="row clearfix flex-class" data-item_id="<% todo_item.content%>">
-	<% if todo_item.completed? %>
-	<div class="complete">
-		<%= link_to complete_todo_list_todo_item_path(todo_list, todo_item.id), remote: true, method: :patch do %>
-			<input type="checkbox" name="checkbox" checked>
+
+	<div class="row clearfix flex-class" data-item_id="<% todo_item.content%>">
+		<% if todo_item.completed? %>
+		<div class="complete">
+			<%= link_to complete_todo_item_path(todo_item.id), remote: true, method: :patch do %>
+				<input type="checkbox" name="checkbox" checked>
+			<% end %>
+		</div>
+		<div class="todo_item" style="opacity: 0.4;"><strike><%= todo_item.content %></strike></div>
+				
+				<div class="move show-button">
+					<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true")%>
+				</div>
+				
+				<div class="edit show-button">
+					<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), edit_todo_item_path(todo_item.id) %>
+				</div>
+				
+						
+				<div class="trash show-button">
+					<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-trash.png?raw=true"), todo_item_path(todo_item.id), method: :delete, data:{ confirm: "Are you sure?", class: "deleteAction" } %>
+				</div>
+
+		
+		<% else %>
+		<div class="complete">
+			<%= link_to "Complete", complete_todo_item_path(todo_item.id), remote: true, method: :patch %>
+		</div>
+		<div class="todo_item">
+			<%= todo_item.content %>
+		</div>
+				<div class="move show-button">
+					<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true") %>
+				</div>
+				
+				<div class="edit show-button">
+					<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), edit_todo_item_path(todo_item.id) %>
+				</div>
+				
+						
+				<div class="trash show-button">
+					<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-trash.png?raw=true"), todo_item_path(todo_item.id), method: :delete, data:{ confirm: "Are you sure?", class: "deleteAction" } %>
+				</div>
 		<% end %>
 	</div>
-	<div class="todo_item" style="opacity: 0.4;"><strike><%= todo_item.content %></strike></div>
-			
-			<div class="move show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true")%>
-			</div>
-			
-			<div class="edit show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), edit_todo_list_path(todo_list) %>
-			</div>
-			
-					
-			<div class="trash show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-trash.png?raw=true"), todo_list_todo_item_path(todo_list, todo_item.id), method: :delete, data:{ confirm: "Are you sure?", class: "deleteAction" } %>
-			</div>
-
-	
-	<% else %>
-	<div class="complete">
-		<%= link_to "Complete", complete_todo_list_todo_item_path(todo_list, todo_item.id), remote: true, method: :patch %>
-	</div>
-	<div class="todo_item">
-		<%= todo_item.content %>
-	</div>
-			<div class="move show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-arrows.png?raw=true") %>
-			</div>
-			
-			<div class="edit show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-pencil.png?raw=true"), edit_todo_list_path(todo_list) %>
-			</div>
-			
-					
-			<div class="trash show-button">
-				<%= link_to image_tag("https://github.com/my-codefactory/prettychecklist/blob/main/app/assets/images/list-trash.png?raw=true"), todo_list_todo_item_path(todo_list, todo_item.id), method: :delete, data:{ confirm: "Are you sure?", class: "deleteAction" } %>
-			</div>
-	<% end %>
-</div>
