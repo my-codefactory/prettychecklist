@@ -1,4 +1,4 @@
-
+<% todo_list.todo_items.each do |todo_item| %>
 	<div class="row clearfix flex-class" data-item_id="<% todo_item.content%>">
 		<% if todo_item.completed? %>
 		<div class="complete">
@@ -43,3 +43,4 @@
 				</div>
 		<% end %>
 	</div>
+<% end %>

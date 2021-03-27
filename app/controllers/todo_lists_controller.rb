@@ -1,10 +1,12 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: %i[ show edit update destroy ]
+  before_action :set_todo_item
 
   # GET /todo_lists or /todo_lists.json
   def index 
 	if user_signed_in?	
 		@todo_lists = TodoList.where(:user_id => current_user.id)
+		@todo_items = TodoItem.all
 	end
   end
 
@@ -68,4 +70,13 @@ class TodoListsController < ApplicationController
     def todo_list_params
       params.require(:todo_list).permit(:title, :description)
     end
+	
+	def set_todo_item
+		@todo_item = @todo_items.find(params[:id])
+	end
+	
+	def todo_item_params
+		params[:todo_item].permit(:content)
+	end
+	
 end
