@@ -1,7 +1,6 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: %i[ show edit update destroy ]
-  before_action :set_todo_item
-
+  
   # GET /todo_lists or /todo_lists.json
   def index 
 	if user_signed_in?	
@@ -29,7 +28,7 @@ class TodoListsController < ApplicationController
     @todo_list = current_user.todo_lists.build(todo_list_params)
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to root_path, notice: "Todo List was successfully created." }
+        format.html { redirect_to @todo_list, notice: "Todo List was successfully created." }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -70,10 +69,6 @@ class TodoListsController < ApplicationController
     def todo_list_params
       params.require(:todo_list).permit(:title, :description)
     end
-	
-	def set_todo_item
-		@todo_item = @todo_items.find(params[:id])
-	end
 	
 	def todo_item_params
 		params[:todo_item].permit(:content)

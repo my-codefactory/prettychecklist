@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
 
-	before_action :set_todo_list, except: [:destroy, :complete, :edit]
+	before_action :set_todo_list
 	before_action :set_todo_item, except: [:create] 
 	
 	def index
@@ -10,7 +10,7 @@ class TodoItemsController < ApplicationController
 
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
-		redirect_to root_path
+		redirect_to @todo_list
 	end
 	
 	def edit
@@ -22,12 +22,12 @@ class TodoItemsController < ApplicationController
 		else
 			flash[:error] = "Todo List item could not be deleted."
 		end
-		redirect_to root_path
+		redirect_to @todo_list
 	end
 	
 	def complete
 		@todo_item.update_attribute(:completed_at, Time.now)
-		redirect_to root_path, notice: "Todo item is completed."
+		redirect_to @todo_list, notice: "Todo item is completed."
 	end
 	
 	private
